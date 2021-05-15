@@ -1,0 +1,14 @@
+enum PostStatus {
+  DRAFT
+  PUBLISHED
+  HIDDEN
+  ARCHIVED
+}
+
+type Post @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  title: String
+  content: String
+  status: PostStatus
+}
+ 
