@@ -3,8 +3,8 @@ import { Post } from "src/models";
 export default function Posts({ post }) {
   return (
     <article>
-      <h1>{post.title}</h1>
-      <div>{post.content}</div>
+      <h1>{post?.title}</h1>
+      <div>{post?.content}</div>
     </article>
   );
 }
