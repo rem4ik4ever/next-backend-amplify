@@ -11,20 +11,14 @@ export default function Posts({ post }) {
 
 export async function getStaticProps(context) {
   const { DataStore } = withSSRContext(context);
-  try {
-    const { id } = context.params;
-    const post = await DataStore.query(Post, id);
-    return {
-      props: {
-        post: JSON.parse(JSON.stringify(post)),
-      },
-      revalidate: 100,
-    };
-  } catch (error) {
-    return {
-      post: undefined,
-    };
-  }
+  const { id } = context.params;
+  const post = await DataStore.query(Post, id);
+  return {
+    props: {
+      post: JSON.parse(JSON.stringify(post)),
+    },
+    revalidate: 100,
+  };
 }
 
 export async function getStaticPaths(context) {
